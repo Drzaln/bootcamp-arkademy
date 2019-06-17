@@ -1,1 +1,1 @@
-### Repo untuk menyimpan pembelajaran saat Bootcamp Arkademy
+### Repo untuk menyimpan pembelajaran saat Bootcamp Arkademy Batch 10
