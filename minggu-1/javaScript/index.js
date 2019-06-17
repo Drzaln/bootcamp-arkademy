@@ -28,11 +28,10 @@ console.log(a)
 a.splice(1,2) // delete item from array
 console.log(a)
 
+orang[0].nama = "Jakuni" // change value on item
+console.log(orang)
 // orang.push({nama: "Rehan", umur: 42}) 
 // console.log(orang)
 
 // orang.splice(1,2) 
 // console.log(orang)
-
-orang[0].nama = "Jakuni" // change value on item
-console.log(orang)
