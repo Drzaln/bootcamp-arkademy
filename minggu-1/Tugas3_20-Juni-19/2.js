@@ -1,11 +1,13 @@
-let inp = [123, 9, 27]
+let inp = [123, 9, 27];
 
-hitungArr = (data) => {
-    for (let i = 0; i < data.length; i++) {
-        for (let j = 0; j < data.length; j++) {
-            return j
-        }
-    }
+let total = "";
+
+while (inp.length != 1) {
+  total = inp.reduce((a, b) => a + b, 0);
+
+  inp = Array.from(String(total), Number);
 }
+let panjang = inp.length;
+let hasil = panjang.toString();
 
-console.log(hitungArr(inp))
+console.log(inp);
