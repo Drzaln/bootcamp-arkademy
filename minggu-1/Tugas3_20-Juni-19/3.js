@@ -10,7 +10,7 @@ let arr2 = [
 ]
 
 transposeMat = (a) => {
-    let i, j, t = []
+    let t = []
     for (let i = 0; i < a[0].length; i++) {
         t[i] = []
         for (let j = 0; j < a.length; j++) {
