@@ -12,7 +12,7 @@ connect.connect((err) => {
     if (err) {
         throw err
     }
-    console.log('terkonek')
+    console.log('terkonek DB')
 })
 
 module.exports = connect
