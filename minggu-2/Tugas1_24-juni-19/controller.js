@@ -45,26 +45,17 @@ exports.updatebook = (req, res) => {
         kategori: req.body.kategori
     }
 
-    conn.query(
-        'UPDATE book SET ? WHERE bookid=?', [data, bookid], (err, result) => {
-            if(err) throw err
-            res.json(result)
-            // res.send({
-            //     err:false,
-            //     data:result,
-            //     message: 'Data sudah diubah'
-            // })
-        }
-    )
+    conn.query('UPDATE book SET ? WHERE bookid=?', [data, bookid], (err, result) => {
+        if(err)console.log(err)
+        res.json(result)
+    })
 }
 
 exports.remove = (req, res) => {
-    let bookid = req.body.bookid
+    let bookid = req.params.bookid
 
-    conn.query(
-        'DELETE book WHERE bookid=?', bookid, (err, result) => {
-            if(err) throw err
-            res.json(result)
-        }
-    )
+    conn.query('DELETE FROM book WHERE bookid = ?' , bookid, (err, result) => {
+        if(err)console.log(err)
+        res.json(result)
+    })
 }
