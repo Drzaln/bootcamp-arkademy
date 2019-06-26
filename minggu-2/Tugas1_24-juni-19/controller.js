@@ -1,83 +1,96 @@
-const response = require('./response')
-const conn = require('./connect')
+const express = require('express')
+const db = require('./models/index')
+const book = db.sequelize.models.book
 
 exports.booklist = (req, res) => {
-    conn.query('SELECT * FROM book', (err, result) => {
-        if (err) {
-            console.log(err)
-        }
-        response.ok(result, res)
+    return book.findAll({
+        raw: true
+    })
+    .then ((result) => {
+        res.send(result)
     })
 }
 
-exports.add = (req, res) => {
+// const response = require('./response')
+// const conn = require('./connect')
 
-    const data = {
-        nama_buku: req.body.nama_buku,
-        penulis: req.body.penulis,
-        lokasi: req.body.lokasi,
-        kategori: req.body.kategori
-    }
+// exports.booklist = (req, res) => {
+//     conn.query('SELECT * FROM book', (err, result) => {
+//         if (err) {
+//             console.log(err)
+//         }
+//         response.ok(result, res)
+//     })
+// }
 
-    conn.query(
-        'INSERT INTO book SET ?', data, (err, result) => {
-            if (err) {
-                console.log(err)
-            }else{
-                return res.send({
-                    err: false,
-                    data: result,
-                    message: 'Data sudah dibuat'
-                })
-            }
-        }
-    )
-}
+// exports.add = (req, res) => {
 
-exports.updatebook = (req, res) => {
+//     const data = {
+//         nama_buku: req.body.nama_buku,
+//         penulis: req.body.penulis,
+//         lokasi: req.body.lokasi,
+//         kategori: req.body.kategori
+//     }
 
-    let bookid = req.params.bookid
+//     conn.query(
+//         'INSERT INTO book SET ?', data, (err, result) => {
+//             if (err) {
+//                 console.log(err)
+//             }else{
+//                 return res.send({
+//                     err: false,
+//                     data: result,
+//                     message: 'Data sudah dibuat'
+//                 })
+//             }
+//         }
+//     )
+// }
 
-    const data = {
-        nama_buku: req.body.nama_buku,
-        penulis: req.body.penulis,
-        lokasi: req.body.lokasi,
-        kategori: req.body.kategori
-    }
+// exports.updatebook = (req, res) => {
 
-    conn.query('UPDATE book SET ? WHERE bookid=?', [data, bookid], (err, result) => {
-        if(err)console.log(err)
-        return res.send({
-            err: false,
-            data: result,
-            message: 'Data sudah diupdate'
-        })
-    })
-}
+//     let bookid = req.params.bookid
 
-exports.remove = (req, res) => {
-    let bookid = req.params.bookid
+//     const data = {
+//         nama_buku: req.body.nama_buku,
+//         penulis: req.body.penulis,
+//         lokasi: req.body.lokasi,
+//         kategori: req.body.kategori
+//     }
 
-    conn.query('DELETE FROM book WHERE bookid = ?' , bookid, (err, result) => {
-        if(err)console.log(err)
-        response.ok(result, res)
-    })
-}
+//     conn.query('UPDATE book SET ? WHERE bookid=?', [data, bookid], (err, result) => {
+//         if(err)console.log(err)
+//         return res.send({
+//             err: false,
+//             data: result,
+//             message: 'Data sudah diupdate'
+//         })
+//     })
+// }
 
-exports.cat = (req, res) => {
-    let kat = req.params.kategori
+// exports.remove = (req, res) => {
+//     let bookid = req.params.bookid
 
-    conn.query('SELECT * FROM book WHERE kategori = ?', kat, (err, result) => {
-        if(err)throw err
-        response.ok(result, res)
-    })
-}
+//     conn.query('DELETE FROM book WHERE bookid = ?' , bookid, (err, result) => {
+//         if(err)console.log(err)
+//         response.ok(result, res)
+//     })
+// }
 
-exports.loc = (req, res) => {
-    let lok = req.params.lokasi
+// exports.cat = (req, res) => {
+//     let kat = req.params.kategori
 
-    conn.query('SELECT * FROM book WHERE lokasi = ?', lok, (err, result) => {
-        if(err) throw err
-        response.ok(result, res)
-    })
-}
+//     conn.query('SELECT * FROM book WHERE kategori = ?', kat, (err, result) => {
+//         if(err)throw err
+//         response.ok(result, res)
+//     })
+// }
+
+// exports.loc = (req, res) => {
+//     let lok = req.params.lokasi
+
+//     conn.query('SELECT * FROM book WHERE lokasi = ?', lok, (err, result) => {
+//         if(err) throw err
+//         response.ok(result, res)
+//     })
+// }
