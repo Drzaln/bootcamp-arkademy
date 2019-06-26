@@ -1,10 +1,11 @@
 ## Book REST
 ***
 ### Requirement
-- npm
-- mysql
-- postman
-- code editor
+- NodeJS
+- NPM
+- MySql
+- Postman
+- Code editor
 
 ### How to
 1. Copy url repo ini `https://github.com/Drzaln/bootcamp-arkademy/tree/master/minggu-2/Tugas1_24-juni-19`
@@ -14,6 +15,7 @@
 
 ### .env file
 ```
+$ npm i dotenv
 $ nano .env
 ```
 ```
