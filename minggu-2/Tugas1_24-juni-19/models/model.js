@@ -63,7 +63,7 @@ module.exports = {
 
     updatebook: (data, bookid, result) => {
         return new Promise((resolve, reject) => {
-            conn.query(`UPDATE book SET ? WHERE bookid=?`, data, bookid, (err, result) => {
+            conn.query(`UPDATE book SET ? WHERE bookid=?`, [data, bookid], (err, result) => {
                 if (!err) {
                     resolve(result)
                 } else {
