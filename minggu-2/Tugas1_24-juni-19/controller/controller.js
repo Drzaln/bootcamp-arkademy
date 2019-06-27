@@ -1,12 +1,53 @@
 const resp = require('../helpers/response')
 const conn = require('../config/connect')
+const model = require('../models/model')
 
 exports.booklist = (req, res) => {
-    conn.query('SELECT * FROM book', (err, result) => {
-        if (err) {
-            console.log(err)
-        }
+    model.booklist()
+    .then((resultBook) => {
+        resp.response(res, resultBook, 200)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
+exports.listId = (req, res) => {
+    let bookid = req.params.bookid
+
+    model.listId(bookid)
+    .then((resultBook) => {
+        const result = resultBook[0]
         resp.response(res, result, 200)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
+exports.cat = (req, res) => {
+    let kat = req.params.kategori
+
+    model.cat(kat)
+    .then((resultBook) => {
+        const result = resultBook[0]
+        resp.response(res, result, 200)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
+exports.loc = (req, res) => {
+    let lok = req.params.lokasi
+
+    model.loc(lok)
+    .then((resultBook) => {
+        const result = resultBook[0]
+        resp.response(res, result, 200)
+    })
+    .catch((err) => {
+        console.log(err)
     })
 }
 
@@ -19,19 +60,13 @@ exports.add = (req, res) => {
         kategori: req.body.kategori
     }
 
-    conn.query(
-        'INSERT INTO book SET ?', data, (err, result) => {
-            if (err) {
-                console.log(err)
-            }else{
-                return res.send({
-                    err: false,
-                    data: result,
-                    message: 'Data sudah dibuat'
-                })
-            }
-        }
-    )
+    model.add(data)
+    .then(()=> {
+        resp.responAdd(res, data, 200)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 }
 
 exports.updatebook = (req, res) => {
@@ -45,48 +80,23 @@ exports.updatebook = (req, res) => {
         kategori: req.body.kategori
     }
 
-    conn.query('UPDATE book SET ? WHERE bookid=?', [data, bookid], (err, result) => {
-        if(err)console.log(err)
-        return res.send({
-            err: false,
-            data: result,
-            message: 'Data sudah diupdate'
-        })
+    model.updatebook(data, bookid)
+    .then(() => {
+        resp.responUpd(res, data, 200)
+    })
+    .catch((err) => {
+        console.log(err)
     })
 }
 
 exports.remove = (req, res) => {
     let bookid = req.params.bookid
 
-    conn.query('DELETE FROM book WHERE bookid = ?' , bookid, (err, result) => {
-        if(err)console.log(err)
-        resp.response(res, result, 200)
+    model.remove(bookid)
+    .then(() => {
+        resp.responDlt(res, bookid, 200)
     })
-}
-
-exports.cat = (req, res) => {
-    let kat = req.params.kategori
-
-    conn.query('SELECT * FROM book WHERE kategori = ?', kat, (err, result) => {
-        if(err)throw err
-        resp.response(res, result, 200)
-    })
-}
-
-exports.loc = (req, res) => {
-    let lok = req.params.lokasi
-
-    conn.query('SELECT * FROM book WHERE lokasi = ?', lok, (err, result) => {
-        if(err) throw err
-        resp.response(res, result, 200)
-    })
-}
-
-exports.listId = (req, res) => {
-    let bookid = req.params.bookid
-
-    conn.query('SELECT * FROM book WHERE bookid = ?', bookid, (err, result) => {
-        if(err) console.log(err)
-        resp.response(res, result, 200)
+    .catch((err) => {
+        console.log(err)
     })
 }
