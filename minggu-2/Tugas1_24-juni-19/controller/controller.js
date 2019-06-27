@@ -13,11 +13,17 @@ exports.booklist = (req, res) => {
 }
 
 exports.listId = (req, res) => {
-    let bookid = req.params.bookid
+    const bookid = req.params.bookid
 
     model.listId(bookid)
     .then((resultBook) => {
         const result = resultBook[0]
+        if (result===undefined) {
+            res.json({
+                status: 404,
+                message: 'Data tidak ditemukan'
+            })
+        }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -31,6 +37,12 @@ exports.cat = (req, res) => {
     model.cat(kat)
     .then((resultBook) => {
         const result = resultBook[0]
+        if (result===undefined) {
+            res.json({
+                status: 404,
+                message: 'Data tidak ditemukan'
+            })
+        }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -44,6 +56,12 @@ exports.loc = (req, res) => {
     model.loc(lok)
     .then((resultBook) => {
         const result = resultBook[0]
+        if (result===undefined) {
+            res.json({
+                status: 404,
+                message: 'Data tidak ditemukan'
+            })
+        }
         resp.response(res, result, 200)
     })
     .catch((err) => {
