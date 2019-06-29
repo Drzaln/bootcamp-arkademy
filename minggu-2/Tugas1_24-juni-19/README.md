@@ -1,5 +1,10 @@
 ## Book REST
 ***
+### Maybe useful
+- list all book --> '/'
+- search based on book id --> '/filter/?bookid='id'
+- search based on book name, category, or location --> '/filter/?search='param'
+
 ### Requirement
 - NodeJS
 - NPM
