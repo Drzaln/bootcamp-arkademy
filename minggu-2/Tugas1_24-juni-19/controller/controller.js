@@ -18,12 +18,12 @@ exports.search = (req, res) => {
     model.search(bookid, search)
     .then((resultBook) => {
         const result = resultBook[0]
-        // if (result===undefined) {
-        //     res.json({
-        //         status: 404,
-        //         message: 'Data tidak ditemukan'
-        //     })
-        // }
+        if (result===undefined) {
+            res.json({
+                status: 404,
+                message: 'Data tidak ditemukan'
+            })
+        }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -37,12 +37,12 @@ exports.listId = (req, res) => {
     model.listId(bookid)
     .then((resultBook) => {
         const result = resultBook[0]
-        // if (result===undefined) {
-        //     res.json({
-        //         status: 404,
-        //         message: 'Data tidak ditemukan'
-        //     })
-        // }
+        if (result===undefined) {
+            res.json({
+                status: 404,
+                message: 'Data tidak ditemukan'
+            })
+        }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -56,12 +56,12 @@ exports.cat = (req, res) => {
     model.cat(kat)
     .then((resultBook) => {
         const result = resultBook[0]
-        // if (result===undefined) {
-        //     res.json({
-        //         status: 404,
-        //         message: 'Data tidak ditemukan'
-        //     })
-        // }
+        if (result===undefined) {
+            res.json({
+                status: 404,
+                message: 'Data tidak ditemukan'
+            })
+        }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -75,12 +75,12 @@ exports.loc = (req, res) => {
     model.loc(lok)
     .then((resultBook) => {
         const result = resultBook[0]
-        // if (result===undefined) {
-        //     res.json({
-        //         status: 404,
-        //         message: 'Data tidak ditemukan'
-        //     })
-        // }
+        if (result===undefined) {
+            res.json({
+                status: 404,
+                message: 'Data tidak ditemukan'
+            })
+        }
         resp.response(res, result, 200)
     })
     .catch((err) => {
