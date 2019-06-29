@@ -99,7 +99,7 @@ exports.add = (req, res) => {
 
     model.add(data)
     .then(()=> {
-        resp.response(res, data, 200)
+        resp.responAdd(res, data, 200)
     })
     .catch((err) => {
         console.log(err)
@@ -119,7 +119,7 @@ exports.updatebook = (req, res) => {
 
     model.updatebook(data, bookid)
     .then(() => {
-        resp.response(res, data, 200)
+        resp.responUpd(res, data, 200)
     })
     .catch((err) => {
         console.log(err)
@@ -131,7 +131,7 @@ exports.remove = (req, res) => {
 
     model.remove(bookid)
     .then(() => {
-        resp.response(res, bookid, 200)
+        resp.responDlt(res, bookid, 200)
     })
     .catch((err) => {
         console.log(err)

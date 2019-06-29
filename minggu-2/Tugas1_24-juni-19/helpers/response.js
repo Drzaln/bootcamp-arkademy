@@ -13,7 +13,6 @@ module.exports = {
     let resp = {}
     resp.status = status
     resp.result = result
-    console.log(result)
     resp.message = 'Data sudah ditambah'
     return res.status(status).json(resp)
   },
