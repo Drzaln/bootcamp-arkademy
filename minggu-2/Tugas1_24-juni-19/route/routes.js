@@ -3,9 +3,7 @@ module.exports = (app) => {
 
     // GET
     app.route ('/').get (controller.booklist)
-    app.route ('/:bookid').get (controller.listId)
-    app.route ('/category/:kategori').get (controller.cat)
-    app.route ('/location/:lokasi').get (controller.loc)
+    app.route ('/filter').get (controller.search)
 
     // POST
     app.route ('/').post (controller.add)

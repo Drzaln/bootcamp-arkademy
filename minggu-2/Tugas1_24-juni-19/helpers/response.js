@@ -1,7 +1,7 @@
+// dijadiin satu response
 module.exports = {
   response: (res, result, status, error) => {
     let resultPrint = {};
-
     resultPrint.error = error || null;
     resultPrint.status_code = status || 200;
     resultPrint.result = result;
@@ -13,6 +13,7 @@ module.exports = {
     let resp = {}
     resp.status = status
     resp.result = result
+    console.log(result)
     resp.message = 'Data sudah ditambah'
     return res.status(status).json(resp)
   },

@@ -12,18 +12,37 @@ exports.booklist = (req, res) => {
     })
 }
 
+exports.search = (req, res) => {
+    const search = req.query.search
+    const bookid = req.query.bookid
+    model.search(bookid, search)
+    .then((resultBook) => {
+        const result = resultBook[0]
+        // if (result===undefined) {
+        //     res.json({
+        //         status: 404,
+        //         message: 'Data tidak ditemukan'
+        //     })
+        // }
+        resp.response(res, result, 200)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+}
+
 exports.listId = (req, res) => {
     const bookid = req.params.bookid
 
     model.listId(bookid)
     .then((resultBook) => {
         const result = resultBook[0]
-        if (result===undefined) {
-            res.json({
-                status: 404,
-                message: 'Data tidak ditemukan'
-            })
-        }
+        // if (result===undefined) {
+        //     res.json({
+        //         status: 404,
+        //         message: 'Data tidak ditemukan'
+        //     })
+        // }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -37,12 +56,12 @@ exports.cat = (req, res) => {
     model.cat(kat)
     .then((resultBook) => {
         const result = resultBook[0]
-        if (result===undefined) {
-            res.json({
-                status: 404,
-                message: 'Data tidak ditemukan'
-            })
-        }
+        // if (result===undefined) {
+        //     res.json({
+        //         status: 404,
+        //         message: 'Data tidak ditemukan'
+        //     })
+        // }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -56,12 +75,12 @@ exports.loc = (req, res) => {
     model.loc(lok)
     .then((resultBook) => {
         const result = resultBook[0]
-        if (result===undefined) {
-            res.json({
-                status: 404,
-                message: 'Data tidak ditemukan'
-            })
-        }
+        // if (result===undefined) {
+        //     res.json({
+        //         status: 404,
+        //         message: 'Data tidak ditemukan'
+        //     })
+        // }
         resp.response(res, result, 200)
     })
     .catch((err) => {
@@ -80,7 +99,7 @@ exports.add = (req, res) => {
 
     model.add(data)
     .then(()=> {
-        resp.responAdd(res, data, 200)
+        resp.response(res, data, 200)
     })
     .catch((err) => {
         console.log(err)
@@ -100,7 +119,7 @@ exports.updatebook = (req, res) => {
 
     model.updatebook(data, bookid)
     .then(() => {
-        resp.responUpd(res, data, 200)
+        resp.response(res, data, 200)
     })
     .catch((err) => {
         console.log(err)
@@ -112,7 +131,7 @@ exports.remove = (req, res) => {
 
     model.remove(bookid)
     .then(() => {
-        resp.responDlt(res, bookid, 200)
+        resp.response(res, bookid, 200)
     })
     .catch((err) => {
         console.log(err)

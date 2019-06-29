@@ -13,6 +13,20 @@ module.exports = {
         })
     },
 
+    search: (bookid, search) => {
+        return new Promise((resolve, reject) => {
+            const keyword = `%${search}%`
+            const bokid = `%${bookid}%`
+            conn.query(`SELECT * FROM book WHERE bookid LIKE ? OR nama_buku LIKE ? OR kategori LIKE ? OR lokasi LIKE ?`, [bokid, keyword, keyword, keyword], (err, result) => {
+                if (!err) {
+                    resolve(result)
+                } else {
+                    reject(new Error(err))
+                }
+            })
+        })
+    },
+
     listId: (bookid, result) => {
         return new Promise((resolve, reject) => {
             conn.query(`SELECT * FROM book WHERE bookid = ?`, bookid, (err, result) => {
