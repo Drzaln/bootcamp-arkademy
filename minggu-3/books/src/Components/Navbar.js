@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   typo: {
     fontWeight: "bold",
     fontSize: 50,
-    marginLeft: 86,
+    marginLeft: 100,
     marginTop: 22,
     marginBottom: 25,
   }

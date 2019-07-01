@@ -4,10 +4,8 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1),
-    merginTop: 408,
-    marginBottom: 545,
-    marginLeft: 1157
+    marginTop: 100,
+    marginLeft: "83%"
   },
   dlmButton: {
     backgroundColor: "#F4CF5D",

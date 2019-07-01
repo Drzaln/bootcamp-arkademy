@@ -8,10 +8,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
-    marginLeft: 108,
-    marginTop: 555,
-    marginBottom: 129,
+    maxWidth: 238,
+    height: 340,
+    marginTop: 100,
+    marginBottom: 100,
+    borderRadius: 15,
   },
 });
 
@@ -24,15 +25,12 @@ export default function ImgMediaCard() {
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
-          height="140"
+          height="237"
           image="https://www.beautyscene.net/wp-content/uploads/2013/10/Beauty-Exclusive-Oriental-Beauty-by-Camilla-Camaglia-4.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6" color="textPrimary" component="h6" style={{marginLeft: 14, marginRight: 14, marginTop: 12}}>
             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
             across all continents except Antarctica
           </Typography>
