@@ -9,11 +9,11 @@ const useStyles = makeStyles(theme => ({
   },
   search: {
     position: "relative",
-    borderRadius: 50,
+    borderRadius: 32,
     backgroundColor: "white",
-    marginTop: 99,
+    marginTop: 64,
     width: "100%",
-    height: 96,
+    height: 64,
     boxShadow: `0px 4px 15px #bfbfbf`
   },
   inputRoot: {
@@ -22,9 +22,9 @@ const useStyles = makeStyles(theme => ({
   },
   inputInput: {
     color: "#A0A0A0",
-    marginTop: "2%",
+    marginTop: "0.5%",
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: 32,
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create("width")
   }

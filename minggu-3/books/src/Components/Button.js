@@ -4,8 +4,8 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   button: {
-    marginTop: 100,
-    marginLeft: "83%"
+    marginTop: 32,
+    marginLeft: "89%"
   },
   dlmButton: {
     backgroundColor: "#F4CF5D",
@@ -18,13 +18,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ContainedButtons() {
+export default function ContainedButtons({text, onClick}) {
   const classes = useStyles();
 
   return (
     <div className={classes.button}>
-      <Button variant="contained" className={classes.dlmButton} style={{paddingLeft: 53, paddingRight: 53, paddingTop: 25, paddingBottom: 25, borderRadius: 10, fontSize: 30}}>
-        ADD
+      <Button onClick={onClick} variant="contained" className={classes.dlmButton} style={{paddingLeft: 16, paddingRight: 16, paddingTop: 8, paddingBottom: 8, borderRadius: 16, fontSize: 32}}>
+        {text}
       </Button>
     </div>
   );

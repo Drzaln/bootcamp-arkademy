@@ -10,10 +10,10 @@ const useStyles = makeStyles({
   },
   typo: {
     fontWeight: "bold",
-    fontSize: 50,
-    marginLeft: 100,
-    marginTop: 22,
-    marginBottom: 25,
+    fontSize: 32,
+    marginLeft: 128,
+    marginTop: 16,
+    marginBottom: 16,
   }
 });
 
