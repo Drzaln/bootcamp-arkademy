@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Search from "../Components/Search";
-import Card from "../Components/Card";
+import Card from "../Components/CardDetail";
 import Grid from "@material-ui/core/Grid";
-import Modal from "../Components/Modal";
+import Modal from "../Components/ModalHome";
 
 export default class Home extends Component {
   render() {
