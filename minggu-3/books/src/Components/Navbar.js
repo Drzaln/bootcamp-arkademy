@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function SimpleAppBar() {
+export default function Navbar() {
   const classes = useStyles();
 
   return (

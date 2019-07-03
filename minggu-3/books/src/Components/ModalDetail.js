@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function ModalDetail() {
   const [open, setOpen] = React.useState(false);
   const [modalStyle] = React.useState(getModalStyle);
 
@@ -94,7 +94,7 @@ export default function SimpleModal() {
                 id="modal-title"
                 style={{ fontWeight: "bold" }}
               >
-                Add Data
+                Edit Data
               </Typography>
             </Grid>
             <Grid item xs={12} sm={3}>

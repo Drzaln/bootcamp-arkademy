@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: 64,
     width: "100%",
     height: 64,
-    boxShadow: `0px 4px 15px #bfbfbf`
+    boxShadow: `0px 4px 15px #bfbfbf`,
   },
   inputRoot: {
     color: "inherit",
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchAppBar() {
+export default function Search() {
   const classes = useStyles();
 
   return (

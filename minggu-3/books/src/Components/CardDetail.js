@@ -10,14 +10,14 @@ import Dialog from "@material-ui/core/Dialog";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import Button from "@material-ui/core/Button";
 import { AppBar } from "@material-ui/core";
 import ModalDetail from "../Components/ModalDetail";
+import ModalDelete from "../Components/ModalDelete";
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 238,
-    height: 340,
+    maxWidth: 170,
+    height: 270,
     marginTop: 64,
     marginBottom: 64,
     borderRadius: 16,
@@ -45,20 +45,23 @@ const useStyles = makeStyles({
   },
   littleBook:{
     position: "absolute",
-    top: "45%",
+    top: "30%",
     right: "10%",
-    width: "10%",
-    height: "30%",
+    width: "15%",
+    height: "45%",
     borderRadius: 16,
-    boxShadow: `0px 4px 15px #bfbfbf`,
+    boxShadow: `0px 4px 15px #4c4c4c`,
   },
+  judul:{
+    fontWeight: "bold",
+  }
 });
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ImgMediaCard({ gambar }) {
+export default function CardDetail({ gambar, judul, judulFull, tgl }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -77,18 +80,18 @@ export default function ImgMediaCard({ gambar }) {
           <CardMedia
             component="img"
             alt="Contemplative Reptile"
-            height="240"
+            height="200"
             image={gambar}
             title="Contemplative Reptile"
           />
-          <CardContent style={{ marginTop: 4 }}>
+          <CardContent>
             <Typography
               variant="h6"
               color="textPrimary"
               component="h6"
-              style={{ marginLeft: 14, marginRight: 14, marginTop: 12 }}
+              style={{ marginLeft: 14, marginRight: 14, marginTop: 1 }}
             >
-              Lizards are a widespread group of
+              {judul}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -114,27 +117,30 @@ export default function ImgMediaCard({ gambar }) {
               <CloseIcon />
             </IconButton>
             <Typography className={classes.tutup} />
-            <Button className={classes.btnUp} onClick={handleDetailClose}>
-              DELETE
-            </Button>
+            <ModalDelete/>
             <ModalDetail/>
           </Toolbar>
         </AppBar>
         <CardMedia
           className={classes.media}
-          image="https://i0.wp.com/www.imagesqueen.com/wp-content/uploads/2017/12/Imogen-Dyer-Desktop.jpg"
+          image={gambar}
         />
         <Card className={classes.littleBook} position="absolute">
         <CardMedia
             component="img"
-            alt="Contemplative Reptile"
-            height="240"
+            alt="gambar"
+            height="350"
             image={gambar}
             title="Contemplative Reptile"
           />
         </Card>
+        <Typography variant="h4" component="h1" className={classes.judul}>
+          {judulFull}
+        </Typography>
+        <Typography gutterBottom variant="body2" component="body2" className={classes.judul}>
+          {tgl}
+        </Typography>
       </Dialog>
-
     </div>
   );
 }
