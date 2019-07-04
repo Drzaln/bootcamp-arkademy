@@ -58,7 +58,7 @@ const useStyles = makeStyles({
     marginTop: "5%",
   },
   tgl:{
-    fontWeight: "bold",
+    fontWeight: "lighter",
     marginLeft: "10%",
   },
   deskripsi:{
@@ -73,7 +73,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskripsi }) {
+export default function CardDetail(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -87,14 +87,14 @@ export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskrips
 
   return (
     <div>
-      <Card className={classes.card} id={id}>
+      <Card className={classes.card} id={props.id}>
         <CardActionArea onClick={handleDetailOpen}>
           <CardMedia
             component="img"
-            alt={judulFull}
+            alt={props.judulFull}
             height="200"
-            image={gambar}
-            title={judulFull}
+            image={props.gambar}
+            title={props.judulFull}
           />
           <CardContent>
             <Typography
@@ -103,7 +103,7 @@ export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskrips
               component="h6"
               style={{ marginLeft: 14, marginRight: 14, marginTop: 1 }}
             >
-              {judul}
+              {props.judul}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -135,25 +135,25 @@ export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskrips
         </AppBar>
         <CardMedia
           className={classes.media}
-          image={gambar}
+          image={props.gambar}
         />
         <Card className={classes.littleBook} position="absolute">
         <CardMedia
             component="img"
             alt="gambar"
             height="350"
-            image={gambar}
-            title={judulFull}
+            image={props.gambar}
+            title={props.judulFull}
           />
         </Card>
-        <Typography variant="h4" component="h1" className={classes.judul}>
-          {judulFull}
+        <Typography gutterBottom variant="h4" component="h1" className={classes.judul}>
+          {props.judulFull}
         </Typography>
-        <Typography gutterBottom variant="body2" component="body2" className={classes.tgl}>
-          {tgl}
+        <Typography variant="body2" component="body2" className={classes.tgl}>
+          {props.tgl}
         </Typography>
-        <Typography align="justify" variant="body1" component="body1" className={classes.deskripsi}>
-          {deskripsi}
+        <Typography align="justify" variant="body1" component="body1" className={classes.deskripsi} style={{marginRight:"25%"}}>
+          {props.deskripsi}
         </Typography>
       </Dialog>
     </div>

@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import clsx from "clsx";
 import TextField from "@material-ui/core/TextField";
 import Btn from "./Button";
+import Data from "../Data/dummy";
 
 function getModalStyle() {
   const top = 50
