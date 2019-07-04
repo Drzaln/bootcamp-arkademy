@@ -143,7 +143,7 @@ export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskrips
             alt="gambar"
             height="350"
             image={gambar}
-            title="Contemplative Reptile"
+            title={judulFull}
           />
         </Card>
         <Typography variant="h4" component="h1" className={classes.judul}>
@@ -152,7 +152,7 @@ export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskrips
         <Typography gutterBottom variant="body2" component="body2" className={classes.tgl}>
           {tgl}
         </Typography>
-        <Typography variant="body1" component="body1" className={classes.deskripsi}>
+        <Typography align="justify" variant="body1" component="body1" className={classes.deskripsi}>
           {deskripsi}
         </Typography>
       </Dialog>
