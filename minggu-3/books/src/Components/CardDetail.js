@@ -91,10 +91,10 @@ export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskrips
         <CardActionArea onClick={handleDetailOpen}>
           <CardMedia
             component="img"
-            alt="Contemplative Reptile"
+            alt={judulFull}
             height="200"
             image={gambar}
-            title="Contemplative Reptile"
+            title={judulFull}
           />
           <CardContent>
             <Typography

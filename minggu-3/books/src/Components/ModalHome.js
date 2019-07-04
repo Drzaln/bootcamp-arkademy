@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import clsx from "clsx";
 import TextField from "@material-ui/core/TextField";
 import Btn from "./Button";
+import Data from "../Data/dummy";
 
 function getModalStyle() {
   const top = 50
@@ -44,6 +45,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#F4CF5D",
     color: "white",
     fontWeight: "bold",
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 8,
+    paddingBottom: 8,
+    borderRadius: 16,
+    fontSize: 32,
     "&:hover": {
       backgroundColor: "#DBBA53",
       borderColor: "#DBBA53"
@@ -52,8 +59,21 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ModalHome() {
-  const [open, setOpen] = React.useState(false);
-  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = useState(false);
+  const [modalStyle] = useState(getModalStyle);
+  const [book, setBook] = useState(Data)
+  const [title, setTitle] = useState('')
+  const [image_url, setImage_url] = useState('')
+  const [desc, setDesc] = useState('')
+
+const bookAdd = () => {
+  book.push({
+    'image_url':image_url,
+    'title':title,
+    'desc':desc
+  })
+  console.log(book)
+}
 
   const handleOpen = () => {
     setOpen(true);
@@ -66,7 +86,7 @@ export default function ModalHome() {
 
   return (
     <div>
-      <Btn text="ADD" onClick={handleOpen} />
+      <Btn teks="ADD" click={handleOpen} clasName={classes.dlmButton} />
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
@@ -118,6 +138,7 @@ export default function ModalHome() {
                 variant="outlined"
                 margin="dense"
                 fullWidth
+                onChange = {(e) => setImage_url(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -139,6 +160,7 @@ export default function ModalHome() {
                 variant="outlined"
                 margin="dense"
                 fullWidth
+                onChange = {(e) => setTitle(e.target.value)}
               />
             </Grid>
           </Grid>
@@ -162,11 +184,12 @@ export default function ModalHome() {
                 margin="normal"
                 variant="outlined"
                 fullWidth
+                onChange = {(e) => setDesc(e.target.value)}
               />
             </Grid>
           </Grid>
           <div style={{marginRight: "0.5%", marginBottom: "20%"}}>
-          <Btn text='SAVE'/>
+          <Btn teks='SAVE' click={bookAdd} clasName={classes.dlmButton}/>
           </div>
         </div>
       </Modal>

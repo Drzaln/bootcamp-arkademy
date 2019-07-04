@@ -44,6 +44,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#F4CF5D",
     color: "white",
     fontWeight: "bold",
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 8,
+    paddingBottom: 8,
+    borderRadius: 16,
+    fontSize: 32,
     "&:hover": {
       backgroundColor: "#DBBA53",
       borderColor: "#DBBA53"
@@ -173,7 +179,7 @@ export default function ModalDetail() {
             </Grid>
           </Grid>
           <div style={{marginRight: "0.5%", marginBottom: "20%"}}>
-          <Btn text='SAVE'/>
+          <Btn teks='SAVE' click={null} clasName={classes.dlmButton}/>
           </div>
         </div>
       </Modal>

@@ -19,7 +19,7 @@ function convert(date) {
 	let data = Date.parse(date);
 	let newDate = new Date(data);
 	let day = newDate.getDate();
-	let months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+	let months = [ 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember' ];
 	let month = months[newDate.getMonth()];
 	var year = newDate.getFullYear();
 	return `${day} ${month} ${year}`;

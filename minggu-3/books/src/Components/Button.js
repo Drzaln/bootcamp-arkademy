@@ -7,34 +7,19 @@ const useStyles = makeStyles(theme => ({
     marginTop: 32,
     marginLeft: "89%"
   },
-  dlmButton: {
-    backgroundColor: "#F4CF5D",
-    color: "white",
-    fontWeight: "bold",
-    paddingLeft: 16,
-    paddingRight: 16,
-    paddingTop: 8,
-    paddingBottom: 8,
-    borderRadius: 16,
-    fontSize: 32,
-    "&:hover": {
-      backgroundColor: "#DBBA53",
-      borderColor: "#DBBA53"
-    }
-  }
 }));
 
-export default function ContainedButtons({text, onClick}) {
+export default function ContainedButtons(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.button}>
       <Button
-        onClick={onClick}
+        onClick={props.click}
         variant="contained"
-        className={classes.dlmButton}
+        className={props.clasName}
       >
-        {text}
+        {props.teks}
       </Button>
     </div>
   );
