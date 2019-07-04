@@ -4,6 +4,8 @@ import Modal from "@material-ui/core/Modal";
 import Button from "@material-ui/core/Button";
 import Close from "@material-ui/icons/Close";
 import Grid from "@material-ui/core/Grid";
+import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
+import { Typography } from "@material-ui/core";
 
 function getModalStyle() {
   const top = 50;
@@ -18,37 +20,34 @@ function getModalStyle() {
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    position: "absolute",
+    position: "relative",
     backgroundColor: theme.palette.background.paper,
     boxShadow: `0px 4px 15px #4c4c4c`,
     outline: "none",
     borderRadius: 15,
-    height: "65%",
-    width: "60%",
+    height: "45%",
+    width: "40%",
     justifyContent: "center"
   },
   button: {
-    marginLeft: "83%"
-  },
-  textField: {
-    marginLeft: theme.spacing(1)
-  },
-  dense: {
-    marginTop: theme.spacing(2)
-  },
-  dlmButton: {
-    backgroundColor: "#F4CF5D",
-    color: "white",
-    fontWeight: "bold",
-    "&:hover": {
-      backgroundColor: "#DBBA53",
-      borderColor: "#DBBA53"
-    }
+    marginLeft: "78%"
   },
   btnUp: {
     color: "white",
     fontWeight: "bold",
     fontSize: 16
+  },
+  modDel: {
+    position: "absolute"
+  },
+  littleBook: {
+    position: "absolute",
+    top: "30%",
+    right: "10%",
+    width: "15%",
+    height: "45%",
+    borderRadius: 16,
+    boxShadow: `0px 4px 15px #4c4c4c`
   }
 }));
 
@@ -93,7 +92,17 @@ export default function ModalDelete() {
               </Button>
             </Grid>
           </Grid>
-          <div style={{ marginRight: "0.5%", marginBottom: "20%" }} />
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <CheckCircleOutline style={{ color: "#3DB39E", fontSize: 200 }} />
+            <Typography variant="h5" component="h5">
+              Data Sudah Dihapus!
+            </Typography>
+          </Grid>
         </div>
       </Modal>
     </div>

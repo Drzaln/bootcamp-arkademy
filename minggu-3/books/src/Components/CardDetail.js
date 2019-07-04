@@ -54,6 +54,18 @@ const useStyles = makeStyles({
   },
   judul:{
     fontWeight: "bold",
+    marginLeft: "10%",
+    marginTop: "5%",
+  },
+  tgl:{
+    fontWeight: "bold",
+    marginLeft: "10%",
+  },
+  deskripsi:{
+    marginLeft: "10%",
+    marginTop: "5%",
+    marginBottom: "5%",
+    marginRight: "10%",
   }
 });
 
@@ -61,7 +73,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function CardDetail({ gambar, judul, judulFull, tgl }) {
+export default function CardDetail({ gambar, judul, judulFull, tgl, id, deskripsi }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -75,7 +87,7 @@ export default function CardDetail({ gambar, judul, judulFull, tgl }) {
 
   return (
     <div>
-      <Card className={classes.card}>
+      <Card className={classes.card} id={id}>
         <CardActionArea onClick={handleDetailOpen}>
           <CardMedia
             component="img"
@@ -137,8 +149,11 @@ export default function CardDetail({ gambar, judul, judulFull, tgl }) {
         <Typography variant="h4" component="h1" className={classes.judul}>
           {judulFull}
         </Typography>
-        <Typography gutterBottom variant="body2" component="body2" className={classes.judul}>
+        <Typography gutterBottom variant="body2" component="body2" className={classes.tgl}>
           {tgl}
+        </Typography>
+        <Typography variant="body1" component="body1" className={classes.deskripsi}>
+          {deskripsi}
         </Typography>
       </Dialog>
     </div>

@@ -144,7 +144,7 @@ const data = [
     
     Phasellus eu nibh volutpat, sagittis nulla at, tincidunt lectus. Mauris rutrum accumsan sodales. Donec finibus libero a magna tempor pellentesque ac sit amet sapien. Praesent sollicitudin at ipsum eu sagittis. Sed cursus elementum sagittis. Donec condimentum tincidunt sapien sed posuere. Praesent gravida lacus et dolor suscipit, vitae convallis mauris vulputate.`,
     created_at: "2019-06-28 10:08:17",
-    updated_at: "2019-06-28 10:08:17"
+    updated_at: "2019-07-17 10:08:17"
   }
 ];
 export default data;
