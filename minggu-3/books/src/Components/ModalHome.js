@@ -73,6 +73,7 @@ const bookAdd = () => {
     'desc':desc
   })
   console.log(book)
+  setOpen(false)
 }
 
   const handleOpen = () => {

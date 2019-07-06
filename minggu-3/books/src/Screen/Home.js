@@ -29,8 +29,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      datas: Data,
-      newData: props
+      newDat: Data,
     };
   }
 
@@ -45,9 +44,9 @@ export default class Home extends Component {
           justify="space-around"
           alignItems="center"
         >
-          {this.state.datas.map(item => {
+          {this.state.newDat.map(item => {
             return (
-              <Grid item>
+              <Grid item xs={3}>
                 <Card gambar={item.image_url} judul={text(item.title)} judulFull={item.title} tgl={convert(item.updated_at)} id={item.bookid} deskripsi={item.description} />
               </Grid>
             );

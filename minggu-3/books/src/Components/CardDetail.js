@@ -11,7 +11,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { AppBar } from "@material-ui/core";
-import ModalDetail from "../Components/ModalDetail";
+import ModalDetail from "./ModalEdit";
 import ModalDelete from "../Components/ModalDelete";
 
 const useStyles = makeStyles({
@@ -86,7 +86,7 @@ export default function CardDetail(props) {
   }
 
   return (
-    <div>
+    <div style={{marginLeft:"20%"}}>
       <Card className={classes.card} id={props.id}>
         <CardActionArea onClick={handleDetailOpen}>
           <CardMedia

@@ -66,6 +66,7 @@ const useStyles = makeStyles(theme => ({
 export default function ModalDetail() {
   const [open, setOpen] = React.useState(false);
   const [modalStyle] = React.useState(getModalStyle);
+  const [newDat, setNewDat] = React.useState(Data)
 
   const handleOpen = () => {
     setOpen(true);
@@ -81,6 +82,7 @@ export default function ModalDetail() {
       <Button className={classes.btnUp} onClick={handleOpen}>
               EDIT
             </Button>
+
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
